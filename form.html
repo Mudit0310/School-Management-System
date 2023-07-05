@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> SmsDB </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+<body>
+  <div class="container">
+    <h1>Apeejay School, Nerul</h1>
+    <h2>School Management System</h2>
+    <img class="img-fluid" id="banner" src="https://smsdb.muditkumar6.repl.co/static/banner.jpg">
+    <h2>About School</h2>
+    <div class="row" style="margin-bottom: 16px;">
+      <div class="col-8">
+        <p class="lead" style="margin-left: 10px;">
+          Apeejay School, Nerul, Navi Mumbai was established under the aegis of Apeejay Education in the year 1986. Mrs Sushma Paul Berlia is the Chairperson of Apeejay Education, who led this School from its inception. The School caters to the requirements of Navi Mumbai - the city of the 21st Century with classes from Nursery to XII and has come a long way. It has provided an ideal platform for the physical, mental, spiritual and emotional growth of children. The Institution's belief is that ‘Learning is a holistic process and is all-pervasive’. In the pursuit of excellence in education, the School has a long-standing reputation in the field of education and has the ranking of one of the top schools not only in Navi Mumbai and Maharashtra state but also at the national level.
+        </p>
+      </div>
+      <div class="col-4">
+        <img src="https://smsdb--muditkumar6.repl.co/static/redd-f-9o8YdYGTT64-unsplash.jpg" style="height: 200px; width: 350px;">
+      </div>
+    </div>
+    <h2 style="margin: 20px 0;">Enter details in...</h2>
+
+
+<div class="row" style="text-align: center; align-items: center;">
+  <div class="col-6">
+    <div>
+      <h4 style="padding: 16px;">Class Master</h4>
+      <h4 style="padding: 16px;">Teacher Master</h4>
+      <h4 style="padding: 16px;">Student Master</h4>
+      <h4 style="padding: 16px;">Class Teacher Master</h4>
+      <h4 style="padding: 16px;">Class Detail</h4>
+      <h4 style="padding: 16px;">Teacher Attendance</h4>
+      <h4 style="padding: 16px;">Teacher Leave Details</h4>
+      <h4 style="padding: 16px;">Student Attendance</h4>
+      <h4 style="padding: 16px;">Student Leave Details</h4>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="btn-group-vertical ">
+      <button type="button" class="btn btn-outline-success" onclick="openClassForm()">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openTeacherForm()" style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openStudentForm()" style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openClassTeacherForm()" style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openClassDtlsForm()" style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openteacherattForm()"style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openteacherleavedtlsForm()"style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openstudentattForm()"style="margin-top: 25px;">Enter Details</button>
+      <button type="button" class="btn btn-outline-success" onclick="openstudentleavedtlsForm()"style="margin-top: 25px;">Enter Details</button>
+    </div>
+  </div>
+</div>
+
+
+    <p class = "text-center text-muted">&copy;Apeejay Education Society 2023 </p>
+  </div>
+  
+   <div class="overlay" id="classFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Class Master</h2>
+      <form method = "POST" action = "/submit/class">
+        <label for="class"><b>Class</b></label><br>
+        <input type="text" placeholder="Enter Class" name="class" required><br>
+        
+        <label for="section"><b>Section</b></label><br>
+        <input type="text" class="mb-2" placeholder="Enter section" name="section" required><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closeClassForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="teacherFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Teacher Master</h2>
+      <form method = "POST" action = "/submit/teacher">
+        <label for="F_Name"><b>First Name</b></label><br>
+        <input type="text" placeholder="Enter First Name" name="F_Name" required><br>
+        
+        <label for="L_Name"><b>Last Name</b></label><br>
+        <input type="text" placeholder="Enter Last Name" name="L_Name" required><br>
+        
+        <label for="Gender"><b>Gender</b></label><br>
+        <input type="text" placeholder="Enter Gender" name="Gender" required><br>
+        
+        <label for="Join_date"><b>Join Date</b></label><br>
+        <input type="date" name="Join_date" required><br>
+        
+        <label for="Sub1"><b>Subject 1</b></label><br>
+        <input type="text" placeholder="Enter Subject" name="Sub1" required><br>
+        
+        <label for="Sub2"><b>Subject 2</b></label><br>
+        <input type="text" placeholder="Enter Subject" name="Sub2"><br>
+        
+        <label for="email"><b>Email</b></label><br>
+        <input type="email"  placeholder="Enter Email ID" name="email" required><br>
+        
+        <label for="Phone_No"><b>Phone Number</b></label><br>
+        <input type="tel" placeholder="Enter Phone Number" name="Phone_no" required><br>
+        
+        <label for="City"><b>City</b></label><br>
+        <input type="text" class = "mb-2" placeholder="Enter City" name="City"><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closeTeacherForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+   <div class="overlay" id="StudentFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Student Master</h2>
+      <form method = "POST" action = "/submit/student">
+        <label for="A_date"><b>Admission Date</b></label><br>
+        <input type="date" name="A_date" required><br>
+        
+        <label for="F_Name"><b>First Name</b></label><br>
+        <input type="text" placeholder="Enter First Name" name="F_Name" required><br>
+        
+        <label for="L_Name"><b>Last Name</b></label><br>
+        <input type="text" placeholder="Enter Last Name" name="L_Name" required><br>
+        
+        <label for="dob"><b>Date of Birth</b></label><br>
+        <input type="date" name="dob" required><br>
+        
+        <label for="Gender"><b>Gender</b></label><br>
+        <input type="text" placeholder="Enter Gender" name="Gender" required><br>
+        
+        <label for="S_Mobile"><b>Student Mobile Number</b></label><br>
+        <input type = "tel" placeholder = "Enter Student Mobile Number" name = "S_Mobile"><br>
+        
+        <label for="Father_Name"><b>Father Name</b></label><br>
+        <input type="text" placeholder = "Enter Father Name" name="Father_Name" required><br>
+        
+        <label for="F_Mobile"><b>Father Mobile Number</b></label><br>
+        <input type = "tel" placeholder = "Enter Father Mobile Number" name = "F_Mobile"><br>
+        
+         <label for="Mother_Name"><b>Mother Name</b></label><br>
+        <input type="text" placeholder = "Enter Mother Name" name="Mother_Name" required><br>
+        
+        <label for="M_Mobile"><b>Mother Mobile Number</b></label><br>
+        <input type = "tel" placeholder = "Enter Mother Mobile Number" name = "M_Mobile"><br>
+        
+        <label for="S_City"><b>City</b></label><br>
+        <input type="text" placeholder="Enter City" name="S_City"><br>
+        
+        <label for="Aadhar_No"><b>Aadhar Number</b></label><br>
+        <input type = "text" placeholder = "Aadhar Card Number" name="Aadhar_No" required><br>
+        
+        <label for="Alumini"><b>Alumini</b></label></br>
+        <input type = "text" class = "mb-2" placeholder = "Alumini" name="Alumini"><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closeStudentForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="classteacherFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Class Teacher Master</h2>
+      <form method = "POST" action = "/submit/class-teacher">
+        <label for="teacher_ID"><b>Teacher ID</b></label><br>
+        <input type = "text" placeholder = "Enter Teacher ID" name = "teacher_ID" required><br>
+        
+        <label for="class_code"><b>Class Code</b></label></br>
+        <input type = "text" placeholder = "Enter Class Code" name = "class_code" required><br>
+        
+        <label for="Subject"><b>Subject</b></label><br>
+        <input type="text" placeholder="Enter Subject Name" name="Subject" required><br>
+        
+        <label for="Start_date"><b>Start Date</b></label><br>
+        <input type="date" placeholder="Enter Start Date" name="Start_date" required><br>
+        
+         <label for="End_date"><b>End Date</b></label><br>
+        <input type="date" class="mb-2" placeholder="Enter End Date" name="End_date" required><br>
+        
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closeClassTeacherForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="ClassDtlsFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Class Details</h2>
+      <form method = "POST" action = "/submit/class_dtls">
+        <label for="class"><b>Class</b></label><br>
+        <input type="text" placeholder="Enter Class" name="class" required><br>
+        
+        <label for="section"><b>Section</b></label><br>
+        <input type="text" placeholder="Enter section" name="section" required><br>
+        
+        <label for="class_teacher"><b>Class teacher</b></label><br>
+        <input type="text" placeholder = "Enter Class Teacher Name" name = "class_teacher" required></br>
+        
+        <label for="Student_count"><b>Student Count</b></label><br>
+        <input type="integrer" placeholder = "Enter Student Count" name = "Student_count" required></br>
+        
+         <label for="Valid_Invalid"><b>Valid or Invalid</b></label><br>
+        <input type="text" class = "mb-2" placeholder = "Valid or Invalid" name = "Valid_Invalid" required></br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closeClassDtlsForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="teacherattFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Teacher Attendance</h2>
+      <form method = "POST" action = "/submit/teacher_att">
+        <label for="Teacher_code"><b>Teacher Code</b></label><br>
+        <input type="text" placeholder="Enter Teacher Code" name="Teacher_code" required><br>
+        
+        <label for="Date"><b>Date</b></label><br>
+        <input type="date" name="date" required><br>
+        
+        <label for="Available"><b>Available</b></label><br>
+        <input type = "text" class = "mb-2" placeholder = "Enter Y or N" name = "Available" required><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closeteacherattForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="teacherleavedtlsFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Teacher Leave Details</h2>
+      <form method = "POST" action = "/submit/teacher_leave_dtls">
+        <label for="teacher_code"><b>Teacher Code</b></label><br>
+        <input type="text" placeholder = "Enter teacher Code" name="teacher_code" required><br>
+        
+        <label for="Start_date"><b>Start Date</b></label><br>
+        <input type="date" name="Start_date" required><br>
+        
+        <label for="End_date"><b>End Date</b></label><br>
+        <input type="date" name="End_date" required><br>
+        
+        <label for="Reason"><b>Reason</b></label><br>
+        <input type = "text" class = "mb-2" placeholder = "Enter Reason" name = "Reason" required><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="openteacherleavedtlsForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="studentattFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Student Attendance</h2>
+      <form method = "POST" action = "/submit/Student_att">
+        <label for="Registration_number"><b>Registration Number</b></label><br>
+        <input type="text" placeholder="Enter Registration Number" name="Registration_number" required><br>
+        
+        <label for="Date"><b>Date</b></label><br>
+        <input type="date" name="date" required><br>
+        
+        <label for="Available"><b>Available</b></label><br>
+        <input type = "text" class = "mb-2" placeholder = "Enter Y or N" name = "Available" required><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="closestudentattForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="overlay" id="studentleavedtlsFormOverlay" style="display: none;">
+    <div class="form-container">
+      <h2>Student Leave Details</h2>
+      <form method = "POST" action = "/submit/student_leave_dtls">
+        <label for="Registration_number"><b>Registration Number</b></label><br>
+        <input type="text" placeholder = "Enter Registration Number" name="Registration_number" required><br>
+        
+        <label for="Start_date"><b>Start Date</b></label><br>
+        <input type="date" name="Start_date" required><br>
+        
+        <label for="End_date"><b>End Date</b></label><br>
+        <input type="date" name="End_date" required><br>
+        
+        <label for="Reason"><b>Reason</b></label><br>
+        <input type = "text" class = "mb-2" placeholder = "Enter Reason" name = "Reason" required><br>
+      
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" onclick="openstudentleavedtlsForm()">Close</button>
+      </form>
+    </div>
+  </div>
